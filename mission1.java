@@ -15,7 +15,6 @@ public class mission1 {
                 max = mas[i];
             }
         }
-        System.out.println(min);
-        System.out.println(max);
+        System.out.println(max - min);
     }
 }
