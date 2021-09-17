@@ -1,11 +1,7 @@
 package com.company;
 
-import org.apache.commons.lang3.ArrayUtils;
-import java.lang.reflect.Array;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.StringJoiner;
-import java.util.Vector;
 
 public class mission5 {
     public static void main(String[] args) {
@@ -14,7 +10,6 @@ public class mission5 {
         String[] surnames = new String[] {"Smith", "Brown", "Williams", "Johnson", "Kim", "Brooks", "James", "Gray", "Foster", "Lopez"};
         String[] fornames = new String[100];
         String[] forsurnames = new String[100];
-        int[] event = new int[100];
         int[] forages = new int[100];
         int[] fornumber = new int[100];
 
@@ -40,7 +35,7 @@ public class mission5 {
         int str3 = 0;
         try
         {
-            if(j != null)
+            if(j != "")
                 str3 = Integer.parseInt(j.trim());
         }
         catch (NumberFormatException e)
@@ -49,43 +44,29 @@ public class mission5 {
         }
 
         for (int i = 0; i < 100; i++) {
-            if (str1 != null && str2 != null && str3 != 0) {
-                if (str1.equals(fornames[i]) && str2.equals(forsurnames[i]) && str3 == forages[i]) {event[i] = 1;}
+            //event[i] = 0;
+            if (str1 != "" && str2 != "" && str3 != 0) {
+                if (str1.equals(fornames[i]) && str2.equals(forsurnames[i]) && str3 == forages[i]) {System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
             }
-            else if (str1 != null && str2 != null && str3 == 0) {
-                if (str1.equals(fornames[i]) && str2.equals(forsurnames[i])) {event[i] = 2;}
+            else if (str1 != "" && str2 != "" && str3 == 0) {
+                if (str1.equals(fornames[i]) && str2.equals(forsurnames[i])) {System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
             }
-            else if (str1 != null && str2 == null && str3 != 0) {
-                if (str1.equals(fornames[i]) && str3 == forages[i]) {event[i] = 3;}
+            else if (str1 != "" && str2.equals("") && str3 != 0) {
+                if (str1.equals(fornames[i]) && str3 == forages[i]) {System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
             }
-            else if (str1 == null && str2 != null && str3 != 0) {
-                if (str2.equals(forsurnames[i]) && str3 == forages[i]) {event[i] = 4;}
+            else if (str1.equals("") && str2 != "" && str3 != 0) {
+                if (str2.equals(forsurnames[i]) && str3 == forages[i]) {System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
             }
-            else if (str1 != null && str2 == null && str3 == 0) {
-                if (str1.equals(fornames[i])) {event[i] = 5;}
+            else if (str1 != "" && str2.equals("") && str3 == 0) {
+                if (str1.equals(fornames[i])) {System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
             }
-            else if (str1 == null && str2 != null && str3 == 0) {
-                if (str2.equals(forsurnames[i])) {event[i] = 6;}
+            else if (str1.equals("") && str2 != "" && str3 == 0) {
+                if (str2.equals(forsurnames[i])) {System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
             }
-            else if (str1 == null && str2 == null && str3 != 0) {
-                if (str3 == forages[i]) {event[i] = 7;}
+            else if (str1.equals("") && str2.equals("") && str3 != 0) {
+                if (str3 == forages[i]) {System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
             }
-
-            if (event[i] == 1){
-                System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
-            else if (event[i] == 2) {
-                System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
-            else if (event[i] == 3){
-                System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
-            else if (event[i] == 4){
-                System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
-            else if (event[i] == 5){
-                System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
-            else if (event[i] == 6){
-                System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
-            else if (event[i] == 7){
-                System.out.println((i + 1) + " " + fornames[i] + " " + forsurnames[i] + " " + forages[i]);}
-            //else if (i == 99 && event[i] == 0) {System.out.println("\nThere is no such student");}
+            else if (i == 99){System.out.println("\nThere is no such student");}
         }
     }
 }
